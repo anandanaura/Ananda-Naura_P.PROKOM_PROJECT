@@ -61,9 +61,7 @@ class DeadlineApp:
         # Jalankan update setiap 1 detik
         self.update_tasks()
 
-    # -----------------------------
     # Tambah Tugas
-    # -----------------------------
     def add_task(self):
         name = self.task_entry.get()
         deadline = self.deadline_entry.get()
@@ -90,9 +88,8 @@ class DeadlineApp:
         self.update_tasks()
         messagebox.showinfo("Sukses", "Tugas ditambahkan!")
 
-    # -----------------------------
+    
     # Update Daftar + Countdown
-    # -----------------------------
     def update_tasks(self):
         self.task_box.delete("0.0", "end")
 
@@ -127,9 +124,8 @@ class DeadlineApp:
         # panggil update lagi setelah 1000ms
         self.master.after(1000, self.update_tasks)
 
-    # -----------------------------
+   
     # TUGAS HARI INI (1 hari 1 tugas)
-    # -----------------------------
     def pick_today_task(self):
         self.cursor.execute("SELECT * FROM tasks ORDER BY deadline")
         tasks = self.cursor.fetchall()
@@ -157,3 +153,4 @@ class DeadlineApp:
 root = ctk.CTk()
 DeadlineApp(root)
 root.mainloop()
+
